@@ -1,31 +1,77 @@
 .vnav{
+	@extend .cf;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 3;
+	background-color: setColor(light);
 	&-text{
 		@extend .block-inline;
 		padding: 0.5em 0;
 		color: setColor(corp);
 		@extend .bold;
 	}
+	&-share{
+		&-inner{
+			display: inline-block;
+		}
+	}
+	@include resp-min(md){
+		max-height: 90px;
+	 	padding: 7px 0;
+	 	@include shadow(0 0 24px rgba(0,0,0,.25));
+	 	@at-root{
+	 		.main{
+		 		margin-top: 90px;
+		 	}
+	 	}
+		&-logo{
+		 	img{
+	 			max-height: 73px;
+	 		}
+	 	}
+	 	&-share{
+	 		display: inline-block;
+		  position: absolute;
+		  left: 42px;
+		  top: 5px;
+	 	}
+	}
 	@include resp-max(md){
+		@at-root{
+			.main{
+				margin-top: 55px;
+			}
+		}
 		&-logo{
 			img{
 				vertical-align: middle;
 				max-height: 28px;
 			}
 		}
+		&-share{
+			text-align: right;
+  		padding: 15px;
+  		&-inner{
+  			margin-right: 7.5px;
+  			&:last-child{
+  				margin-right: 0;
+  			}
+  		}
+		}
 	}
-	
 	@if ( map-get($grid-system, menuExists) == true ){
 
 		&-menu{
 			@extend %vnav-transitionDef;
 			li{
 				display: inline-block;
-				
 	 			vertical-align: middle;
-	 			text-transform: uppercase;
 				a{
 					@extend .tdn;
 					@extend .relative;
+					@extend .bold_cond;
 					color: inherit;
 					&:after{
 						@extend .pseudo;
@@ -121,10 +167,7 @@
 		@include resp-max(md){
 			@at-root{
 				%vnav-resp{
-					display: block;
-					position: fixed;
-					left: 0;
-					background-color: #1b1b1b;
+					background-color: setColor(red);
 				}
 			}	
 			top: 0;
@@ -135,6 +178,9 @@
 			@extend %vnav-resp;
 			&-menu{
 				@extend %vnav-resp;
+				display: block;
+				position: fixed;
+				left: 0;
 				top: 56px;
 				padding: 0;
 		    width: 270px;
@@ -150,7 +196,7 @@
 		    		display: block;
 		    		padding: 15px;
 		    		margin-bottom: 15px;
-		    		background-color: #212121;
+		    		background-color: lighten(setColor(red), 5%);
 		    	}
 		    }
 			}
@@ -159,7 +205,10 @@
 			@include cf();
 			&-menu{
 				li{
-					padding: 15px 5px;
+					padding: 30px 13px;
+					&:last-child{
+						padding-right: 0;
+					}
 				}
 			}
 			&-menu-btn{

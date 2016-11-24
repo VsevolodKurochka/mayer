@@ -2,12 +2,12 @@
   @extend .relative;
   @extend .block-inline;
   @extend .tdn;
-  @extend .bold;
   @extend .transition;
+  @extend .ttu;
   border: none;
-  @include borderR(3px);
+  @include borderR(25px);
   max-width: 100%;
-  padding: 10px 20px;
+  padding: 15px 30px;
   overflow: hidden;
   z-index: 1;
   font-size: 16px;
@@ -17,9 +17,8 @@
     z-index: -1;
   }
   @include resp-min(xs){
-    @include size(text_default);
-    // padding: 10px 40px;
-    padding: 30px;
+    font-size: 18px;
+    padding: 14px 35px;
   }
   &-effect{
     @include transform(translateZ(0));
@@ -108,8 +107,18 @@
   }
   &-corp{
     background-color: setColor(corp);
+    color: setColor(light);
     &:before{
       background-color: lighten(setColor(corp), 15%);
+    }
+  }
+  &-border{
+    background-color: transparent;
+    border: 2px solid #e0e0e0;
+    padding: 10px 25px;
+    font-size: 14px;
+    &:before{
+      background-color: #e0e0e0;
     }
   }
   &-single{

@@ -24,11 +24,11 @@ $error: "This variable we do not have, sorry. Please try to change variable";
 }
 
 //MIXIN FONT
-@mixin connect-font($font,$class_name: $font){
+@mixin connect-font($font,$class_name: $font, $font-exp: otf){
   @font-face{
     font-family: $font;
     src: local("#{$font}"), 
-    url(../fonts/#{$font}.otf);
+    url(fonts/#{$font}.#{$font-exp});
   }
   @if $class_name != null{
     .#{$class_name}{

@@ -24,7 +24,7 @@ $(document).ready(function(){
 			$('.anchor-menu').click(function(){
 				var href = $(this).attr('href');
 				$('body,html').animate({
-					scrollTop: $(href).offset().top
+					scrollTop: $(href).offset().top - 50
 				},2000);
 				$("[data-menu]").removeClass(active);
 				toggler();
@@ -107,6 +107,13 @@ $(document).ready(function(){
 					$(".vtabs-content > div").not($(tabTarget)).removeClass(active);
 				
 			});
+
+		$("#main-slider").owlCarousel({
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+      items : 1,
+      singleItem: true,
+      pagination: false
+  	});
 		//DEVELOPE
 		// var widthDevice = $(window).width();
 		// $(".development").html(widthDevice);

@@ -6,7 +6,7 @@ Start: COLUMNS
   @include make-column(sm,"not-push","not-pull","not-offset");
 }
 @include resp-min(md){
-  @include make-column(md,"not-push","not-pull","not-offset");
+  @include make-column(md,"push","not-pull","not-offset");
 }
 @include resp-min(lg){
   @include make-column(lg,"not-push","not-pull","not-offset");
@@ -99,13 +99,26 @@ End:  HIDDEN AND VISIBLE UTILITIES
   }
 }
 %padding-block{
-  padding-top: 50px;
-  padding-bottom: 50px; 
+  padding-top: 30px;
+  padding-bottom: 30px; 
+
 }
 .vsection{
   @extend .cf;
   @extend %padding-block;
   @extend .relative;
+  @include resp-min(md){
+    &.big{
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+  @include resp-min(lg){
+    &.big{
+      padding-top: 140px;
+      padding-bottom: 140px;
+    }
+  }
 }
 .vpull{
   &-left{
